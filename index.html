@@ -11,10 +11,10 @@
 
 		function makeCookieIfNeeded(cookieKey, cookieValue, cookieObject){
 			var wasFound = false;
-			if ($.cookie(cookieKey) === null) {
-				$.cookie(cookieKey, cookieValue, cookieObject);
-			} else {
+			if (!$.cookie(cookieKey) === undefined) {
 				wasFound = true;
+			} else {
+				$.cookie(cookieKey, cookieValue, cookieObject);
 			}
 			return wasFound;
 		}
